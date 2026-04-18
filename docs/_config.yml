@@ -1,0 +1,6 @@
+title: 命令行速查
+description: 我常用的命令行/工具速查表（已做脱敏与整理）
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
