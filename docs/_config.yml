@@ -1,6 +1,18 @@
 title: 命令行速查
-description: 我常用的命令行/工具速查表（已做脱敏与整理）
+description: 我常用的命令行/工具速查表
 theme: minima
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
+
+# 控制导航栏（title bar）显示顺序
+header_pages:
+  - index.md
+  - tmux.md
+  - vim.md
+  - ssh.md
+  - git.md
+  - docker.md
+  - linux.md
+  - python-ml.md
+  - prompts.md

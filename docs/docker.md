@@ -4,6 +4,54 @@ title: Docker
 
 # Docker（镜像/容器常用操作）
 
+## 我常用的镜像/容器记录（保留原始编号）
+
+> 这些 ID/名称来自你的原始笔记，用于快速定位环境；按需替换成你当前机器上的实际值。
+
+容器（示例）：
+```bash
+docker ps
+docker ps -a
+
+# 进入
+docker exec -it 9a3da8b7a829 /bin/bash
+docker exec -it fa5f7ee0259f /bin/bash
+docker exec -it da2212b210c7 /bin/bash
+docker exec -it d46292017381 /bin/bash
+docker exec -it 2acddd94905d /bin/bash
+docker exec -it be30b783ef89 /bin/bash
+docker exec -it 168f3e361844 /bin/bash
+
+# 启停/删除/重命名（示例）
+docker start e1be6e8cdcc4
+docker kill 14cd72952ed6
+docker stop 2c7a344ba3b4
+docker rm -f 14cd72952ed6
+docker rename agitated_wing wufanghao08
+```
+
+镜像（示例）：
+```bash
+docker images
+docker tag ce83519912f7 conda:conda
+docker rmi -f ac024bd40d34
+
+# 导入/导出
+docker load -i qizhuangnode3.tar
+docker save lixiang2025815 > lixiang2025815.tar
+
+# 从容器固化镜像
+docker commit 2acddd94905d lixiang2025815
+```
+
+运行（示例，含 GPU/挂载）：
+```bash
+docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/wufanghao08:/mnt ce83519912f7 /bin/bash
+docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/lixiang:/mnt d74c7d8a7d7a /bin/bash
+docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/lixiang11:/mnt be0668c2b26e /bin/bash
+docker run --gpus all --shm-size 8G -ti -d -v /public/wu/chenxu:/mnt ce83519912f7 /bin/bash
+```
+
 ## 镜像
 ```bash
 docker images
