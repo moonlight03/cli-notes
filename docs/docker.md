@@ -17,10 +17,10 @@ docker ps -a
 docker exec -it 9a3da8b7a829 /bin/bash
 docker exec -it fa5f7ee0259f /bin/bash
 docker exec -it da2212b210c7 /bin/bash
-docker exec -it d46292017381 /bin/bash
-docker exec -it 2acddd94905d /bin/bash
-docker exec -it be30b783ef89 /bin/bash
-docker exec -it 168f3e361844 /bin/bash
+docker exec -it d46292017381 /bin/bash   # 4090*4 10 lixiang10
+docker exec -it 2acddd94905d /bin/bash   # 4090*4 11 lixiang11
+docker exec -it be30b783ef89 /bin/bash   # 4090*4 12 lixiang12
+docker exec -it 168f3e361844 /bin/bash   # 4090*4 13 lixiang
 
 # 启停/删除/重命名（示例）
 docker start e1be6e8cdcc4
@@ -50,6 +50,14 @@ docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/wufanghao08:/mn
 docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/lixiang:/mnt d74c7d8a7d7a /bin/bash
 docker run --gpus all --shm-size 8G -ti -d -v /public/localUsers/lixiang11:/mnt be0668c2b26e /bin/bash
 docker run --gpus all --shm-size 8G -ti -d -v /public/wu/chenxu:/mnt ce83519912f7 /bin/bash
+```
+
+## 备忘：Jupyter/NFS（原笔记）
+```bash
+nohup jupyter notebook --allow-root &
+
+mount -t nfs -o vers=3,nolock,proto=tcp,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 \
+  192.168.11.10:/mnt/sdata/shumei /public
 ```
 
 ## 镜像
